@@ -59,6 +59,8 @@
   h2{margin:0 0 1.1rem; font-size:.82rem; text-transform:uppercase; letter-spacing:.13em;
     color:var(--faint); font-weight:650; padding-bottom:.5rem; border-bottom:1px solid var(--rule)}
   p{margin:0 0 .9rem}
+  .lede{color:var(--fg)}
+  .kw{margin:.2rem 0 0; color:var(--muted); font-size:.92rem}
   .note{background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--accent);
     border-radius:0 6px 6px 0; padding:.85rem 1rem; font-size:.95rem}
   .note p:last-child{margin-bottom:0}
@@ -106,7 +108,6 @@
   ul.plain{list-style:none; margin:0; padding:0}
   ul.plain li{margin:0 0 .42rem; padding-left:1.1rem; position:relative; font-size:.95rem}
   ul.plain li::before{content:"·"; position:absolute; left:.25rem; color:var(--faint)}
-  ul.plain li .tag{color:var(--faint)}
   h3{margin:1.4rem 0 .6rem; font-size:.95rem; font-weight:650}
   h3:first-child{margin-top:0}
   .course{display:flex; flex-wrap:wrap; gap:.15rem .55rem; align-items:baseline}
@@ -149,6 +150,18 @@
     </p>
   </div>
 </header>
+
+<section id="research">
+  <h2>Research</h2>
+  <p class="lede">I work on system security. My research builds defenses that make low-level
+  software memory-safe and properly isolated, usually by co-designing compilers and runtimes with
+  the hardware features already present in commodity processors — ARM TrustZone and TrustZone-M,
+  memory tagging, memory domains and protection keys, and custom RISC-V ISA extensions.</p>
+  <p>Recent work targets resource-constrained embedded and IoT devices, WebAssembly runtimes,
+  and robotics middleware, where conventional protections are too expensive to apply directly.</p>
+  <p class="kw">Memory safety · Control-flow integrity · In-process isolation · Trusted execution
+  environments · Embedded and IoT security · WebAssembly · RISC-V · Kernel protection</p>
+</section>
 
 <section id="openings">
   <h2>Openings</h2>
@@ -385,19 +398,6 @@
         <span class="badges"><a class="b" href="https://ieeexplore.ieee.org/abstract/document/6526710">PDF</a></span></li>
     </ol>
   </details>
-</section>
-
-<section id="service">
-  <h2>Academic Service</h2>
-  <ul class="plain">
-    <li><span class="tag">Associate Editor</span> — Journal of Information Processing Systems (JIPS)</li>
-    <li><span class="tag">Reviewer</span> — ACM Transactions on Privacy and Security (TOPS)</li>
-    <li><span class="tag">Reviewer</span> — ACM Transactions on Architecture and Code Optimization (TACO)</li>
-    <li><span class="tag">Reviewer</span> — IEEE Transactions on Information Forensics &amp; Security (TIFS)</li>
-    <li><span class="tag">Reviewer</span> — IEEE Transactions on Computers (TC)</li>
-    <li><span class="tag">Reviewer</span> — IEEE Access</li>
-    <li><span class="tag">Reviewer</span> — The Journal of Supercomputing</li>
-  </ul>
 </section>
 
 <section id="teaching">

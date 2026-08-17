@@ -13,7 +13,7 @@ assets/kwon-cv.pdf         # CV (원본: CV_dhkwon 저장소에서 빌드 후 �
 
 ## 구성 순서
 
-Openings → Publications → Academic Service → Teaching.
+Research → Openings → Publications → Teaching.
 
 Publications는 **최근 3년(2024–2026)만 펼쳐진 상태로** 보이고, 그 이전 실적은
 `<details class="more">` 안에 접혀 있다. 해를 넘길 때 최신 연도 그룹을 `<details>` 밖으로
@@ -28,7 +28,7 @@ Publications는 **최근 3년(2024–2026)만 펼쳐진 상태로** 보이고, �
 
 ## 내용 출처
 
-Publications · Academic Service · Teaching 항목은 `CV_dhkwon` 저장소의 LaTeX
+Publications · Teaching 항목은 `CV_dhkwon` 저장소의 LaTeX
 소스(`cv/*.tex`)와 같은 내용이다. **CV를 고치면 이 페이지도 함께 고쳐야 한다**
 (자동 동기화 없음). `assets/kwon-cv.pdf`도 CV 저장소에서 빌드한 결과물을 수동으로 복사한
 것이다.
