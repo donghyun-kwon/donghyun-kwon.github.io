@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Donghyun Kwon — Pusan National University</title>
+<meta name="description" content="Donghyun Kwon is an Associate Professor in the School of Computer Science and Engineering at Pusan National University, where he directs the Computer Security Lab (CSLab). His research is on system security: memory safety, hardware-assisted isolation, and trusted execution.">
+<link rel="canonical" href="https://donghyun-kwon.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d4ed8'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='700' fill='%23fff' text-anchor='middle'%3EDK%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1a1d21; --muted:#5d6672; --faint:#8b949e;
+    --rule:#e4e7eb; --accent:#1d4ed8; --chip-bg:#f2f4f7; --card:#fafbfc;
+    --measure:820px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#101418; --fg:#e6e9ee; --muted:#a2adba; --faint:#7c8794;
+      --rule:#242a31; --accent:#7aa2ff; --chip-bg:#1a2027; --card:#151a20;
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",
+      "Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--measure); margin:0 auto; padding:56px 24px 72px}
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ---------- header ---------- */
+  header{display:flex; gap:32px; align-items:flex-start; flex-wrap:wrap}
+  .portrait{flex:0 0 168px; width:168px}
+  .portrait img{width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:8px; display:block;
+    border:1px solid var(--rule)}
+  .ident{flex:1 1 380px; min-width:280px}
+  h1{margin:0 0 2px; font-size:2rem; line-height:1.15; letter-spacing:-.02em; font-weight:700}
+  h1 .ko{font-size:1.05rem; font-weight:500; color:var(--muted); letter-spacing:0; margin-left:.45em;
+    white-space:nowrap}
+  .role{margin:.5rem 0 0; color:var(--fg)}
+  .role .sep{color:var(--faint)}
+  .affil{margin:.15rem 0 0; color:var(--muted); font-size:.95rem}
+  dl.meta{margin:.95rem 0 0; display:grid; grid-template-columns:auto 1fr; gap:.2rem .85rem;
+    font-size:.93rem}
+  dl.meta dt{color:var(--faint)}
+  dl.meta dd{margin:0}
+  .links{margin:1.05rem 0 0; display:flex; flex-wrap:wrap; gap:.4rem}
+  .links a{display:inline-block; padding:.3rem .68rem; font-size:.86rem; border-radius:999px;
+    background:var(--chip-bg); color:var(--fg); border:1px solid var(--rule)}
+  .links a:hover{border-color:var(--accent); color:var(--accent); text-decoration:none}
+
+  /* ---------- sections ---------- */
+  section{margin-top:52px}
+  h2{margin:0 0 1.1rem; font-size:.82rem; text-transform:uppercase; letter-spacing:.13em;
+    color:var(--faint); font-weight:650; padding-bottom:.5rem; border-bottom:1px solid var(--rule)}
+  p{margin:0 0 .9rem}
+  .lede{color:var(--fg)}
+  .kw{margin:.2rem 0 0; color:var(--muted); font-size:.92rem}
+  .note{background:var(--card); border:1px solid var(--rule); border-left:3px solid var(--accent);
+    border-radius:0 6px 6px 0; padding:.85rem 1rem; font-size:.95rem}
+  .note p:last-child{margin-bottom:0}
+
+  /* ---------- publications ---------- */
+  .pubkey{margin:-.35rem 0 1.3rem; font-size:.85rem; color:var(--faint)}
+  .year{display:flex; align-items:baseline; gap:.8rem; margin:1.7rem 0 .7rem}
+  .year:first-of-type{margin-top:0}
+  .year b{font-size:1.02rem; font-variant-numeric:tabular-nums; letter-spacing:.01em}
+  .year i{flex:1 1 auto; height:1px; background:var(--rule)}
+  ol.pubs{list-style:none; margin:0; padding:0}
+  ol.pubs li{margin:0 0 1.05rem; padding-left:1.55rem; position:relative}
+  ol.pubs li::before{content:attr(data-n); position:absolute; left:0; top:.12rem;
+    font-size:.76rem; color:var(--faint); font-variant-numeric:tabular-nums}
+  .t{font-weight:600}
+  .a{display:block; color:var(--muted); font-size:.92rem; margin-top:.1rem}
+  .a b{color:var(--fg); font-weight:650}
+  .v{display:block; font-size:.9rem; margin-top:.05rem; color:var(--muted)}
+  .v em{font-style:normal; color:var(--fg)}
+
+  /* ---------- service & teaching ---------- */
+  ul.plain{list-style:none; margin:0; padding:0}
+  ul.plain li{margin:0 0 .42rem; padding-left:1.1rem; position:relative; font-size:.95rem}
+  ul.plain li::before{content:"·"; position:absolute; left:.25rem; color:var(--faint)}
+  ul.plain li .tag{color:var(--faint)}
+  h3{margin:1.4rem 0 .6rem; font-size:.95rem; font-weight:650}
+  h3:first-child{margin-top:0}
+  .course{display:flex; flex-wrap:wrap; gap:.15rem .55rem; align-items:baseline}
+  .course .terms{color:var(--faint); font-size:.85rem; font-variant-numeric:tabular-nums}
+
+  /* ---------- timeline ---------- */
+  .tl{list-style:none; margin:0; padding:0}
+  .tl li{display:grid; grid-template-columns:9.5rem 1fr; gap:.2rem 1rem; margin:0 0 1rem}
+  .tl .when{color:var(--faint); font-size:.88rem; font-variant-numeric:tabular-nums; padding-top:.15rem}
+  .tl .what{margin:0}
+  .tl .what b{font-weight:600}
+  .tl .what span{display:block; color:var(--muted); font-size:.92rem}
+  .tl .what small{display:block; color:var(--faint); font-size:.86rem; margin-top:.15rem}
+
+  footer{margin-top:60px; padding-top:1.2rem; border-top:1px solid var(--rule);
+    color:var(--faint); font-size:.86rem; display:flex; justify-content:space-between;
+    flex-wrap:wrap; gap:.5rem}
+
+  @media (max-width:620px){
+    .wrap{padding:36px 18px 56px}
+    header{gap:22px}
+    .portrait{flex-basis:130px; width:130px}
+    h1{font-size:1.6rem}
+    h1 .ko{display:block; margin-left:0; margin-top:.15rem}
+    .tl li{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="portrait">
+    <img src="assets/donghyun-kwon.jpg" alt="Donghyun Kwon">
+  </div>
+  <div class="ident">
+    <h1>Donghyun Kwon<span class="ko">권동현</span></h1>
+    <p class="role">Associate Professor <span class="sep">·</span> Director, <a href="https://cslab-pnu.github.io/">Computer Security Lab</a></p>
+    <p class="affil">School of Computer Science and Engineering<br>Pusan National University, Busan, South Korea</p>
+    <dl class="meta">
+      <dt>Office</dt><dd>Room 718, IT Building (Bldg. 102)</dd>
+      <dt>Email</dt><dd><a class="js-email" data-u="kwondh" data-d="pusan.ac.kr"></a></dd>
+    </dl>
+    <p class="links">
+      <a href="assets/kwon-cv.pdf">CV (PDF)</a>
+      <a href="https://cslab-pnu.github.io/">Lab</a>
+      <a href="https://scholar.google.com/citations?user=GfeOBLAAAAAJ">Google Scholar</a>
+      <a href="https://dblp.org/pid/130/9723.html">DBLP</a>
+      <a href="https://github.com/cslab-pnu">GitHub</a>
+    </p>
+  </div>
+</header>
+
+<section id="research">
+  <h2>Research</h2>
+  <p class="lede">I work on system security. My research builds defenses that make low-level
+  software memory-safe and properly isolated, usually by co-designing compilers and runtimes with
+  the hardware features already present in commodity processors — ARM TrustZone and TrustZone-M,
+  memory tagging, memory domains and protection keys, and custom RISC-V ISA extensions.</p>
+  <p>Recent work targets resource-constrained embedded and IoT devices, WebAssembly runtimes,
+  and robotics middleware, where conventional protections are too expensive to apply directly.</p>
+  <p class="kw">Memory safety · Control-flow integrity · In-process isolation · Trusted execution
+  environments · Embedded and IoT security · WebAssembly · RISC-V · Kernel protection</p>
+</section>
+
+<section id="openings">
+  <h2>Openings</h2>
+  <div class="note">
+    <p>I am looking for motivated graduate and undergraduate students who want to work on system
+    security. If you enjoy operating systems, compilers, or computer architecture and want to break
+    and then fix real systems, please get in touch by email. Details are on the
+    <a href="https://cslab-pnu.github.io/">lab page</a>.</p>
+  </div>
+</section>
+
+<section id="publications">
+  <h2>Publications</h2>
+  <p class="pubkey">* corresponding author &nbsp;·&nbsp; ** joint first authors</p>
+
+  <div class="year"><b>2026</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="41"><span class="t">Mind the Gap: In-Process Isolation for Safe Rust in WebAssembly</span>
+      <span class="a">Suhyeon Song, Chaewon Shin, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>ESORICS</em> — European Symposium on Research in Computer Security, 2026</span></li>
+    <li data-n="40"><a class="t" href="https://www.usenix.org/conference/usenixsecurity26/presentation/gu-yunju">XCFI: Comprehensive Control-Flow Integrity for Arm TrustZone-M</a>
+      <span class="a">Yunju Gu, Jaeyeol Park, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>USENIX Security Symposium</em>, 2026</span></li>
+    <li data-n="39"><a class="t" href="https://doi.org/10.1145/3817117">TzPy: Python Runtime for Edge Code Deployment on TrustZone</a>
+      <span class="a">Suhyeon Song, Jaeyeol Park, Chaewon Shin, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>ACM Transactions on Embedded Computing Systems (TECS)</em>, 2026</span></li>
+    <li data-n="38"><a class="t" href="https://doi.org/10.1109/ACCESS.2026.3655366">SERA: Secure Micro XRCE-DDS Establishment with Remote Attestation for micro-ROS</a>
+      <span class="a">Jeonghwan Kang, Seungmin Kang, Euijun Kim, Jaeseon Park, Kyounghwan Kim, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>IEEE Access</em>, 2026</span></li>
+    <li data-n="37"><a class="t" href="https://doi.org/10.1109/ACCESS.2025.3650447">WARD: Efficient Memory Protection for WebAssembly on Tiny Embedded Systems</a>
+      <span class="a">Chaewon Shin, Gowon Han, Suhyeon Song, Jinsun Park, Yoon-ho Choi, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>IEEE Access</em>, 2026</span></li>
+    <li data-n="36"><a class="t" href="https://www.sciencedirect.com/science/article/abs/pii/S0167404825005012">Beyond Address Spaces: In-process Memory Isolation for RISC-V</a>
+      <span class="a">Seonghwan Park, Hayoung Kang, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>Computers &amp; Security</em>, 2026</span></li>
+  </ol>
+
+  <div class="year"><b>2025</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="35"><a class="t" href="https://doi.org/10.1109/ACSAC67867.2025.00029">SMORE: Practical Redzone-Based Stack Memory Error Detection Mechanism for Embedded Systems</a>
+      <span class="a">Jaeyeol Park, Yunju Gu, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>ACSAC</em> — Annual Computer Security Applications Conference, 2025</span></li>
+    <li data-n="34"><a class="t" href="https://doi.org/10.1109/ACSAC67867.2025.00030">ELK: Effective Lock-and-Key Technique for Temporal Memory Safety on Embedded Devices in ARMv8-M</a>
+      <span class="a">Jeonghwan Kang, Kyounghwan Kim, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>ACSAC</em> — Annual Computer Security Applications Conference, 2025</span></li>
+    <li data-n="33"><a class="t" href="https://doi.org/10.1109/ACCESS.2025.3556864">Watch Your Callback: Offline Anomaly Detection using Machine Learning in ROS 2</a>
+      <span class="a">Jeonghwan Kang, Kyounghwan Kim, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>IEEE Access</em>, 2025</span></li>
+    <li data-n="32"><a class="t" href="https://ieeexplore.ieee.org/abstract/document/10869388">WasDom: An Efficient Write Protection for Wasm JITed Code With ARM Domain</a>
+      <span class="a">Suhyeon Song, Chaewon Shin, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>IEEE Access</em>, 2025</span></li>
+    <li data-n="31"><a class="t" href="https://doi.org/10.1109/TASE.2024.3525050">ROSec: Intra-Process Isolation for ROS Composition with Memory Protection Keys</a>
+      <span class="a">Jiwon Seo, Kayondo Martin, Jeonghwan Kang, <b>Donghyun Kwon*</b>, and Yunheung Paek*</span>
+      <span class="v"><em>IEEE Transactions on Automation Science and Engineering (T-ASE)</em>, 2025</span></li>
+  </ol>
+
+  <div class="year"><b>2024</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="30"><a class="t" href="https://doi.org/10.1145/3649329.3655949">Look Before You Access: Efficient Heap Memory Safety for Embedded Systems on ARMv8-M</a>
+      <span class="a">Jeonghwan Kang, Jaeyeol Park, Jiwon Seo, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>DAC</em> — Design Automation Conference, 2024</span></li>
+    <li data-n="29"><a class="t" href="https://ieeexplore.ieee.org/document/10496091">MECAT: Memory-Safe Smart Contracts in ARM TrustZone</a>
+      <span class="a">Seonghwan Park, Hayoung Kang, Sanghun Han, Jonghee M. Youn*, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>IEEE Access</em>, 2024</span></li>
+    <li data-n="28"><a class="t" href="https://www.jstage.jst.go.jp/article/nolta/15/4/15_673/_article">Non-volatile flip-flop with soft error tolerant capability using DICE and C-element</a>
+      <span class="a">Shogo Takahashi, <b>Donghyun Kwon</b>, and Kazuteru Namba*</span>
+      <span class="v"><em>IEICE Nonlinear Theory and Its Applications (NOLTA)</em>, 2024</span></li>
+  </ol>
+
+  <div class="year"><b>2023</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="27"><a class="t" href="https://dl.acm.org/doi/10.1145/3579856.3590341">SFITAG: Efficient Software Fault Isolation with Memory Tagging for ARM Kernel Extensions</a>
+      <span class="a">Jiwon Seo, Junseung You, Yungi Cho, Yeongpil Cho, <b>Donghyun Kwon*</b>, and Yunheung Paek*</span>
+      <span class="v"><em>ACM ASIACCS</em> — ACM ASIA Conference on Computer and Communications Security, 2023</span></li>
+    <li data-n="26"><a class="t" href="https://ieeexplore.ieee.org/document/10196334">ZOMETAG: Zone-based Memory Tagging for Fast, Deterministic Detection of Spatial Memory Violations on ARM</a>
+      <span class="a">Jiwon Seo, Junseung You, <b>Donghyun Kwon</b>, Yeongpil Cho*, and Yunheung Paek*</span>
+      <span class="v"><em>IEEE Transactions on Information Forensics and Security (TIFS)</em>, 2023</span></li>
+    <li data-n="25"><a class="t" href="https://ieeexplore.ieee.org/document/10363125">Enhancing a Lock-and-key Scheme with MTE to Mitigate Use-After-Frees</a>
+      <span class="a">Inyoung Bang, Martin Kayondo, Junseung Yu, <b>Donghyun Kwon</b>, Yeongpil Cho*, and Yunheung Paek*</span>
+      <span class="v"><em>IEEE Access</em>, 2023</span></li>
+    <li data-n="24"><a class="t" href="https://ieeexplore.ieee.org/document/10296897">metaSafer: A Technique to Detect Heap Metadata Corruption in WebAssembly</a>
+      <span class="a">Suhyeon Song, Seonghwan Park, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>IEEE Access</em>, 2023</span></li>
+    <li data-n="23"><a class="t" href="https://www.mdpi.com/1424-8220/23/7/3568">DEMIX: Domain-Enforced Memory Isolation for Embedded System</a>
+      <span class="a">Haeyoung Kim, Harashta Tatimma Larasati, Jonguk Park, Howon Kim, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>Sensors</em>, 2023</span></li>
+  </ol>
+
+  <div class="year"><b>2022</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="22"><a class="t" href="https://ieeexplore.ieee.org/abstract/document/9992195">Efficient CFI Enforcement for Embedded Systems Using ARM TrustZone-M</a>
+      <span class="a">Gisu Yeo, Yeryeong Kim, Suhyeon Song, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>IEEE Access</em>, 2022</span></li>
+    <li data-n="21"><a class="t" href="https://link.springer.com/article/10.1007/s11227-022-04694-y">Exploring Effective Uses of the Tagged Memory for Reducing Bounds Checking Overheads</a>
+      <span class="a">Jiwon Seo, Inyoung Bang, Yungi Cho, Jangseop Shin, Dongil Hwang, <b>Donghyun Kwon</b>, Yeongpil Cho, and Yunheung Paek</span>
+      <span class="v"><em>The Journal of Supercomputing</em>, 2022</span></li>
+    <li data-n="20"><a class="t" href="https://www.mdpi.com/1424-8220/22/4/1392">Bratter: An Instruction Set Extension for Forward Control-Flow Integrity in RISC-V</a>
+      <span class="a">Seonghwan Park, Dongwook Kang, Jeonghwan Kang, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>Sensors</em>, 2022</span></li>
+  </ol>
+
+  <div class="year"><b>2021</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="19"><a class="t" href="https://www.mdpi.com/1424-8220/21/22/7771">CoMeT: Configurable Tagged Memory Extension</a>
+      <span class="a">Jinjae Lee, Derry Pratama, Minjae Kim, Howon Kim, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>Sensors</em>, 2021</span></li>
+    <li data-n="18"><a class="t" href="https://www.mdpi.com/2079-9292/10/17/2068">A Hardware Platform for Ensuring OS Kernel Integrity on RISC-V</a>
+      <span class="a"><b>Donghyun Kwon</b>, Dongil Hwang, and Yunheung Paek</span>
+      <span class="v"><em>Electronics</em>, 2021</span></li>
+  </ol>
+
+  <div class="year"><b>2020</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="17"><a class="t" href="https://dl.acm.org/doi/abs/10.1145/3400302.3415727">RIMI: Instruction-level Memory Isolation for Embedded Systems on RISC-V</a>
+      <span class="a">Haeyoung Kim, Jinjae Lee, Derry Pratama, Asep Muhamad Awaludin, Howon Kim, and <b>Donghyun Kwon*</b></span>
+      <span class="v"><em>ICCAD</em> — International Conference on Computer-Aided Design, 2020</span></li>
+    <li data-n="16"><a class="t" href="https://ieeexplore.ieee.org/abstract/document/8691596">PrOS: Light-weight Privatized Secure OSes in ARM TrustZone</a>
+      <span class="a"><b>Donghyun Kwon</b>, Jiwon Seo, Yeongpil Cho, Byoungyoung Lee, and Yunheung Paek</span>
+      <span class="v"><em>IEEE Transactions on Mobile Computing (TMC)</em>, 2020</span></li>
+  </ol>
+
+  <div class="year"><b>2019</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="15"><a class="t" href="https://www.usenix.org/conference/usenixsecurity19/presentation/kwon">uXOM: Efficient eXecute-Only Memory on ARM Cortex-M</a>
+      <span class="a"><b>Donghyun Kwon</b>, Jangseop Shin, Giyeol Kim, Byoungyoung Lee, Yeongpil Cho, and Yunheung Paek</span>
+      <span class="v"><em>USENIX Security Symposium</em>, 2019</span></li>
+    <li data-n="14"><a class="t" href="https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_05A-4_Shin_paper.pdf">CRCount: Pointer Invalidation with Reference Counting to Mitigate Use-After-Free in Legacy C/C++</a>
+      <span class="a">Jangseop Shin, <b>Donghyun Kwon</b>, Jiwon Seo, Yeongpil Cho, and Yunheung Paek</span>
+      <span class="v"><em>NDSS</em> — Network and Distributed System Security Symposium, 2019</span></li>
+    <li data-n="13"><a class="t" href="https://ieeexplore.ieee.org/abstract/document/8715277">RiskiM: Toward Complete Kernel Protection with Hardware Support</a>
+      <span class="a">Dongil Hwang, Myunghoon Yang, Seongil Jeon, Younghan Lee, <b>Donghyun Kwon*</b>, and Yunheung Paek</span>
+      <span class="v"><em>DATE</em> — Design, Automation and Test in Europe, 2019</span></li>
+    <li data-n="12"><a class="t" href="https://dl.acm.org/doi/abs/10.1145/3309698">Safe and Efficient Implementation of a Security System on ARM using Intra-Level Privilege Separation</a>
+      <span class="a"><b>Donghyun Kwon</b>, Hayoon Yi, Yeongpil Cho, and Yunheung Paek</span>
+      <span class="v"><em>ACM Transactions on Privacy and Security (TOPS)</em>, 2019</span></li>
+  </ol>
+
+  <div class="year"><b>2018</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="11"><a class="t" href="https://dl.acm.org/doi/abs/10.1145/3195970.3196061">Hypernel: A Hardware-Assisted Framework for Kernel Protection without Nested Paging</a>
+      <span class="a"><b>Donghyun Kwon**</b>, Kuenwhee Oh**, Junmo Park, Seungyong Yang, Yeongpil Cho, Brent Byunghoon Kang, and Yunheung Paek</span>
+      <span class="v"><em>DAC</em> — Design Automation Conference, 2018</span></li>
+    <li data-n="10"><span class="t">VM-CFI: Control-Flow Integrity for Virtual Machine Kernel Using Intel PT</span>
+      <span class="a"><b>Donghyun Kwon</b>, Jiwon Seo, Sehyun Baek, Giyeol Kim, Sunwoo Ahn, and Yunheung Paek</span>
+      <span class="v"><em>ICCSA</em> — International Conference on Computational Science and Its Applications, 2018</span></li>
+  </ol>
+
+  <div class="year"><b>2017</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="9"><a class="t" href="https://dl.acm.org/doi/abs/10.1145/3061639.3062267">Instruction-Level Data Isolation for the Kernel on ARM</a>
+      <span class="a">Yeongpil Cho, <b>Donghyun Kwon</b>, and Yunheung Paek</span>
+      <span class="v"><em>DAC</em> — Design Automation Conference, 2017</span></li>
+    <li data-n="8"><a class="t" href="https://www.ndss-symposium.org/ndss2017/ndss-2017-programme/dynamic-virtual-address-range-adjustment-intra-level-privilege-separation-arm/">Dynamic Virtual Address Range Adjustment for Intra-Level Privilege Separation on ARM</a>
+      <span class="a">Yeongpil Cho, <b>Donghyun Kwon</b>, Hayoon Yi, and Yunheung Paek</span>
+      <span class="v"><em>NDSS</em> — Network and Distributed System Security Symposium, 2017</span></li>
+    <li data-n="7"><a class="t" href="https://link.springer.com/article/10.1007/s11042-016-3711-9">Optimization Techniques to Enable Execution Offloading for 3D Video Games</a>
+      <span class="a"><b>Donghyun Kwon</b>, Seungjun Yang, Yunheung Paek, and Kwangman Ko</span>
+      <span class="v"><em>Multimedia Tools and Applications (MTAP)</em>, 2017</span></li>
+  </ol>
+
+  <div class="year"><b>2016</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="6"><a class="t" href="https://www.usenix.org/conference/atc16/technical-sessions/presentation/cho">Hardware-Assisted On-Demand Hypervisor Activation for Efficient Security Critical Code Execution on Mobile Devices</a>
+      <span class="a">Yeongpil Cho, Jun-Bum Shin, <b>Donghyun Kwon</b>, MyungJoo Ham, Yuna Kim, and Yunheung Paek</span>
+      <span class="v"><em>USENIX ATC</em> — USENIX Annual Technical Conference, 2016</span></li>
+    <li data-n="5"><a class="t" href="https://www.sciencedirect.com/science/article/abs/pii/S1574119215001856">Precise Execution Offloading for Applications with Dynamic Behavior in Mobile Cloud Computing</a>
+      <span class="a">Yongin Kwon, Hayoon Yi, <b>Donghyun Kwon</b>, Seungjun Yang, Yeongpil Cho, and Yunheung Paek</span>
+      <span class="v"><em>Pervasive and Mobile Computing (PMC)</em>, 2016</span></li>
+  </ol>
+
+  <div class="year"><b>2015</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="4"><a class="t" href="https://ieeexplore.ieee.org/abstract/document/6987328">Mantis: Efficient Predictions of Execution Time, Energy Usage, Memory Usage and Network Usage on Smart Mobile Devices</a>
+      <span class="a">Yongin Kwon, Sangmin Lee, Hayoon Yi, <b>Donghyun Kwon</b>, Seungjun Yang, Byung-gon Chun, Ling Huang, Petros Maniatis, Mayur Naik, and Yunheung Paek</span>
+      <span class="v"><em>IEEE Transactions on Mobile Computing (TMC)</em>, 2015</span></li>
+  </ol>
+
+  <div class="year"><b>2014</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="3"><a class="t" href="https://ieeexplore.ieee.org/abstract/document/6746190">Techniques to Minimize State Transfer Costs for Dynamic Execution Offloading in Mobile Cloud Computing</a>
+      <span class="a">Seungjun Yang, <b>Donghyun Kwon</b>, Hayoon Yi, Yeongpil Cho, Yongin Kwon, and Yunheung Paek</span>
+      <span class="v"><em>IEEE Transactions on Mobile Computing (TMC)</em>, 2014</span></li>
+  </ol>
+
+  <div class="year"><b>2013</b><i></i></div>
+  <ol class="pubs">
+    <li data-n="2"><a class="t" href="https://www.usenix.org/conference/atc13/technical-sessions/presentation/kwon">Mantis: Automatic Performance Prediction for Smartphone Applications</a>
+      <span class="a">Yongin Kwon, Sangmin Lee, Hayoon Yi, <b>Donghyun Kwon</b>, Seungjun Yang, Byung-Gon Chun, Ling Huang, Petros Maniatis, Mayur Naik, and Yunheung Paek</span>
+      <span class="v"><em>USENIX ATC</em> — USENIX Annual Technical Conference, 2013</span></li>
+    <li data-n="1"><a class="t" href="https://ieeexplore.ieee.org/abstract/document/6526710">Fast Dynamic Execution Offloading for Efficient Mobile Cloud Computing</a>
+      <span class="a">Seungjun Yang, Yongin Kwon, Yeongpil Cho, Hayoon Yi, <b>Donghyun Kwon</b>, Jonghee Youn, and Yunheung Paek</span>
+      <span class="v"><em>PerCom</em> — IEEE International Conference on Pervasive Computing and Communications, 2013</span></li>
+  </ol>
+</section>
+
+<section id="service">
+  <h2>Academic Service</h2>
+  <ul class="plain">
+    <li><span class="tag">Associate Editor</span> — Journal of Information Processing Systems (JIPS)</li>
+    <li><span class="tag">Reviewer</span> — ACM Transactions on Privacy and Security (TOPS)</li>
+    <li><span class="tag">Reviewer</span> — ACM Transactions on Architecture and Code Optimization (TACO)</li>
+    <li><span class="tag">Reviewer</span> — IEEE Transactions on Information Forensics &amp; Security (TIFS)</li>
+    <li><span class="tag">Reviewer</span> — IEEE Transactions on Computers (TC)</li>
+    <li><span class="tag">Reviewer</span> — IEEE Access</li>
+    <li><span class="tag">Reviewer</span> — The Journal of Supercomputing</li>
+  </ul>
+</section>
+
+<section id="teaching">
+  <h2>Teaching</h2>
+  <h3>Graduate</h3>
+  <ul class="plain">
+    <li><span class="course">System Vulnerabilities and Countermeasures <span class="terms">F21, F22, F23, F24, F25</span></span></li>
+    <li><span class="course">Introduction to System and Software Security <span class="terms">S21, S22, S23, S24, S25, S26</span></span></li>
+  </ul>
+  <h3>Undergraduate</h3>
+  <ul class="plain">
+    <li><span class="course">System Software <span class="terms">S20, S21, S22, S23, S24, S25, S26</span></span></li>
+    <li><span class="course">Blockchain <span class="terms">S24, S25, S26</span></span></li>
+    <li><span class="course">Computer Architecture <span class="terms">F24, F25</span></span></li>
+    <li><span class="course">Logic Circuit Design &amp; Lab. <span class="terms">F23, F24</span></span></li>
+    <li><span class="course">Introduction to Internet and Web <span class="terms">S20, S21, S22, S23</span></span></li>
+    <li><span class="course">Web Application Programming <span class="terms">F21, F22, F23</span></span></li>
+    <li><span class="course">Programming Principles and Practice <span class="terms">F20, F21</span></span></li>
+    <li><span class="course">Compiler <span class="terms">F22</span></span></li>
+    <li><span class="course">Adventure Design <span class="terms">F20</span></span></li>
+    <li><span class="course">Discrete Mathematics 1 <span class="terms">S20</span></span></li>
+  </ul>
+</section>
+
+<section id="background">
+  <h2>Background</h2>
+  <ul class="tl">
+    <li><span class="when">2023 — present</span>
+      <p class="what"><b>Associate Professor</b>
+        <span>School of Computer Science and Engineering, Pusan National University</span></p></li>
+    <li><span class="when">2020 — 2023</span>
+      <p class="what"><b>Assistant Professor</b>
+        <span>School of Computer Science and Engineering, Pusan National University</span></p></li>
+    <li><span class="when">2019 — 2020</span>
+      <p class="what"><b>Senior Researcher</b>
+        <span>Electronics and Telecommunications Research Institute (ETRI)</span></p></li>
+    <li><span class="when">2012 — 2019</span>
+      <p class="what"><b>Ph.D., Electrical and Computer Engineering</b>
+        <span>Seoul National University</span>
+        <small>Thesis: Hardware-assisted Isolation for System Framework to Ensure Kernel Integrity ·
+        Advisor: Yunheung Paek · Distinguished Ph.D. Dissertation Award</small></p></li>
+    <li><span class="when">2008 — 2012</span>
+      <p class="what"><b>B.S., Electrical and Computer Engineering</b>
+        <span>Seoul National University</span></p></li>
+  </ul>
+</section>
+
+<footer>
+  <span><a href="https://cslab-pnu.github.io/">Computer Security Lab</a> · Pusan National University</span>
+  <span>Last updated 18 August 2026</span>
+</footer>
+
+</div>
+
+<script>
+  // Assemble mailto addresses at runtime so the plain string is not in the markup.
+  (function(){
+    var AT = String.fromCharCode(64);
+    document.querySelectorAll('.js-email').forEach(function(el){
+      var u = el.getAttribute('data-u'), d = el.getAttribute('data-d');
+      if(!u || !d) return;
+      var addr = u + AT + d;
+      if(el.tagName === 'A') el.setAttribute('href', 'mai' + 'lto:' + addr);
+      if(!el.textContent.trim()) el.textContent = addr;
+    });
+  })();
+</script>
+</body>
+</html>
