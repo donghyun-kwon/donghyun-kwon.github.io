@@ -11,12 +11,27 @@ assets/donghyun-kwon.jpg   # 프로필 사진
 assets/kwon-cv.pdf         # CV (원본: CV_dhkwon 저장소에서 빌드 후 복사)
 ```
 
+## 구성 순서
+
+Openings → Publications → Academic Service → Teaching.
+
+Publications는 **최근 3년(2024–2026)만 펼쳐진 상태로** 보이고, 그 이전 실적은
+`<details class="more">` 안에 접혀 있다. 해를 넘길 때 최신 연도 그룹을 `<details>` 밖으로
+꺼내고 가장 오래된 노출 연도를 안으로 넣으면 된다. 접힌 구간의 논문 수는 `<summary>` 문구에
+직접 적혀 있으니 함께 고칠 것.
+
+논문 제목에는 링크를 걸지 않고, 항목 아래 뱃지로 링크를 단다.
+
+- `<a class="b">PDF</a>` — 논문 원문/출판사 페이지
+- `<a class="b code">Code</a>` — 공개 구현이 있는 경우 [`cslab-pnu`](https://github.com/cslab-pnu) 조직의
+  저장소 (현재 XCFI, SMORE, ELK)
+
 ## 내용 출처
 
-Publications · Education · Professional Experience · Academic Service · Teaching 항목은
-`CV_dhkwon` 저장소의 LaTeX 소스(`cv/*.tex`)와 같은 내용이다. **CV를 고치면 이 페이지도 함께
-고쳐야 한다** (자동 동기화 없음). `assets/kwon-cv.pdf`도 CV 저장소에서 빌드한 결과물을 수동으로
-복사한 것이다.
+Publications · Academic Service · Teaching 항목은 `CV_dhkwon` 저장소의 LaTeX
+소스(`cv/*.tex`)와 같은 내용이다. **CV를 고치면 이 페이지도 함께 고쳐야 한다**
+(자동 동기화 없음). `assets/kwon-cv.pdf`도 CV 저장소에서 빌드한 결과물을 수동으로 복사한
+것이다.
 
 연구실 홈페이지는 별도 저장소인 [`cslab-pnu/cslab-pnu.github.io`](https://github.com/cslab-pnu/cslab-pnu.github.io)에
 있다.
